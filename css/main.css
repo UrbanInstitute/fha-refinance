@@ -1,0 +1,90 @@
+.bar {
+  fill: #587E8C;
+}
+
+body{
+  height: 800px;
+  font-family: 'Lato';
+}
+.axis {
+  font-size: 14px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.x.axis line{
+  display: none;
+}
+
+.graph {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#controls{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  width: 380px;
+}
+
+#slider{
+/*  margin:auto;
+  display: block;*/
+}
+
+#rate, #premium{
+  position: relative;
+  margin-top: 10px;
+  left: 38px;
+  width: 300px;
+}
+
+#value-wrapper{
+  display: inline-block;
+  font-family: "Lato";
+  font-size: 25px;
+  font-weight: bold;
+  width: 64px;
+  margin-left: 5px;
+  color: #FA514B;
+}
+
+.acc_trigger{
+  font-size: 20px;
+  font-style: italic;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.acc_container{
+  margin-left: auto;
+  margin-right: auto;
+  width: 750px;
+  line-height: 1.5em;
+}
+
+#scrollArrow{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -10px;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none; color: black;
+}
