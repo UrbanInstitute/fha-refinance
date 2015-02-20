@@ -1,3 +1,10 @@
+var premium_input = 0.85
+
+
+d3.select("#button_85").attr("class","selected")
+d3.select("#button_135").attr("class","disabled")
+
+
 $('input[type="range"]').change(function () {
     var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
     
@@ -51,6 +58,21 @@ d3.tsv("data/data.tsv", function(d) {
     estimate: +(d.Refi_Volume_Estimate.replace(/,/g,''))
     };
   }, function(error, data) {
+
+
+
+
+    function bindButtons(){
+  $('#buttons button').click(function(e){ 
+    var thisObj = $(this);
+    $('#buttons').removeClass('selected');
+    thisObj.removeClass('disabled').addClass('selected').siblings().addClass('disabled');
+    var val = thisObj.attr('id')=='button_85' ? .85 : 1.35;    
+      premium_input = val;
+      drawBars(d3.select('#rate')[0][0].value,+val);
+  })
+}
+bindButtons();
 
     svg.append("g")
       .attr("class", "x axis")
@@ -212,12 +234,12 @@ d3.tsv("data/data.tsv", function(d) {
 	}
 
 	d3.select("#rate").on("input", function() {
-  drawBars(+this.value, d3.select('#premium')[0][0].value);
+  drawBars(+this.value, premium_input);
 });
 
-d3.select("#premium").on("input", function() {
-  drawBars(d3.select('#rate')[0][0].value,+this.value);
-});
+// d3.select("#premium").on("input", function() {
+//   drawBars(d3.select('#rate')[0][0].value,+this.value);
+// });
 
 drawBars(3.66,.85);
 

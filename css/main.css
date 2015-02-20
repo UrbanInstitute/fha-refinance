@@ -11,6 +11,11 @@
 }
 
 
+
+.label_medium{
+  font-size: 16pt
+}
+
 body{
   height: 800px;
   font-family: 'Lato';
@@ -206,4 +211,31 @@ input[type="range"]{
         color-stop(0.33, #ec008c),
         color-stop(0.33, #888888)
     );
+}
+
+
+
+
+button {
+    font-size: 16pt;
+    font-family: Lato;
+    font-weight: 100;
+    padding: 0px !important;
+    /*padding-bottom: 0.167em;*/
+    border: 0px;
+    height: 1.750em;
+    width: 4.250em;
+    background-color: #EB7E10;
+    color: #FFF;
+    cursor: pointer;
+}
+button.selected {
+    background-color: #000;
+    border: 0pc
+    color: #000;
+}
+button.disabled {
+    background-color: #888888;
+    border: 0pc
+    color: #888888;
 }
