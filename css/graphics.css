@@ -1,0 +1,131 @@
+/*body {
+  width: 960px;
+  margin: auto;
+  position: relative;
+}
+*/
+
+/*******************************/
+/*    Slopegragh Styles       */
+/******************************/
+
+.slope-graph-container{
+  width: 60%;
+  float: left;
+}
+
+.slope-graph-container{
+  font: 1em Lato, Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis--y path {
+  display: none;
+}
+
+.axis--x path{
+  stroke: solid;
+
+}
+.states {
+  fill: none;
+  stroke: #aaa;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-width: 1px;
+}
+
+.state--hover {
+  stroke: #1696d2;
+  stroke-width: 5px;
+}
+
+.voronoi path {
+  fill: none;
+  pointer-events: all;
+}
+
+#form {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.vertical_lines{
+  stroke: #000;
+}
+
+/*Tooltips*/
+
+
+.labels-container p{
+  width: 40%;
+  float: right;
+  font-size: 1em !important;
+  margin: 0 0 0 0 !important;
+}
+#slope-graph_state-name{
+  font: 16pt !important;
+  font-weight: bold;
+}
+
+#slope-graph_medicare{
+  font-style: italic;
+}
+/*******************************/
+/*         Map Styles         */
+/******************************/
+
+#map-states {
+  fill: none;
+  stroke: #dcdcdc;
+  stroke-linejoin: round;
+}
+
+.map-state--hover {
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+.q0-6 { fill:rgb(207,227,245); }
+.q1-6 { fill:rgb(176,213,241); }
+.q2-6 { fill:rgb(130,196,233); }
+.q3-6 { fill:rgb(22,150,210); }
+.q4-6 { fill:rgb(0,87,139); }
+.q5-6 { fill:rgb(0,30,60); }
+
+
+/*******************************/
+/*    Bar gragh Styles       */
+/******************************/
+.bar {
+  fill: #1696d2;
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+
+.bar-axis {
+  font: 1em Lato, Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.bar-axis path,
+.bar-axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.bar-axis path {
+  display: none;
+}
+
+.bar-background{
+  fill: #e6e7e8;
+}
