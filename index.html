@@ -7,16 +7,19 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <body>
   <div id = "controls">
-    <strong>FHA Rate:</strong><div id = "value-wrapper"><span id="rate-value"></span></div>
-    <strong>Premium:</strong><div id = "value-wrapper"><span id="premium-value"></span></div>
+    <strong>FHA Rate:</strong><div class = "value-wrapper"><span id="rate-value"></span></div>
+    <strong>Premium:</strong><div class = "value-wrapper"><span id="premium-value"></span></div>
       <input type="range" id="rate" min = "3" max = "5" step = ".01" name="rate" value = "3.66">
       <input type="range" id="premium" min = ".85" max = "1.35" step = ".5" name="premium" value = ".85">
   </div>
+  <strong>0.5 Spread:</strong><div class = "spread-wrapper"><span id="s50-value"></span></div>
+  <strong>0.75 Spread:</strong><div class = "spread-wrapper"><span id="s75-value"></span></div>
+  <strong>1.0 Spread:</strong><div class = "spread-wrapper"><span id="s100-value"></span></div>
 
 
 <script>
 
-var margin = {top: 20, right: 50, bottom: 30, left: 40},
+var margin = {top: 20, right: 50, bottom: 30, left: 100},
       width = 560 - margin.left - margin.right,
       height = 300 - margin.top - margin.bottom;
 
@@ -35,6 +38,12 @@ var margin = {top: 20, right: 50, bottom: 30, left: 40},
       .orient("left")
       .ticks(10, "");
 
+  x.domain(["spread .50","spread .75","spread 1"]);
+  y.domain([0, 7000000]);
+
+  var sampleSize = 6600000
+  var excluded =   2200000
+
   var svg = d3.select("body").append("svg")
       .attr("class","graph")
       .attr("width", width + margin.left + margin.right)
@@ -42,82 +51,142 @@ var margin = {top: 20, right: 50, bottom: 30, left: 40},
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+
+
+
 d3.tsv("data/data.tsv", function(d) {
   return {
     rate: +d.Refinance_Note_Rate,
     premium: +d.Annual_Premium,
     spread: +d.Spread,
     estimate: +d.Refi_Volume_Estimate.replace(/,/g,'')
-  };
-}, function(error, data) {
+    };
+  }, function(error, data) {
 
-	function bars(rate,premium){
-	  var s5 = estimate(rate,premium,.5)
-	  console.log(s5)
-	  // var s75
-	  // var s1
-	  var rate = parseFloat(rate);
-	  var premium = parseFloat(premium);
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
 
-	  rate = roundRate(rate);
+    var ytest = svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
 
-	  d3.select("#rate").value = rate
+  	function bars(rate,premium){
+  	  // var s75
+  	  // var s1
+  	  var rate = parseFloat(rate);
+  	  var premium = parseFloat(premium);
 
-	  d3.select("#rate-value").text(rate);
-	  d3.select("#premium-value").text(premium);
+  	  rate = roundRate(rate);
 
+      var s50 = estimate(rate,premium,.5)
+      var s75 = estimate(rate,premium,.75)
+      var s100 = estimate(rate,premium,1)
 
-
-	  // percentIn = parseFloat(inp);
-
-	  // d3.selectAll('.axis').remove();
-
-	  // var lowerBound = parseFloat((100.0 - 2*percentIn) / (100.0 - percentIn));
-
-	  
-	  // d3.tsv("data.tsv", type, function(error, data) {
-
-	  //   x.domain(data.map(function(d) { return d.category; }));
-	  //   y.domain([lowerBound, d3.max(data, function(d) { return d.value; })]);
+      var tmp = [{s50:s50,s75:s75,s100:s100}]
 
 
-	  //   svg.append("g")
-	  //       .attr("class", "x axis")
-	  //       .attr("transform", "translate(0," + height + ")")
-	  //       .call(xAxis);
+  	  d3.select("#rate").value = rate
 
-	  //   var ytest = svg.append("g")
-	  //       .attr("class", "y axis")
-	  //       .call(yAxis);
-
-	  //   var bars = svg.selectAll(".bar")
-	  //     .data(data);
+  	  d3.select("#rate-value").text(rate);
+  	  d3.select("#premium-value").text(premium);
+      d3.select("#s50-value").text(s50);
+      d3.select("#s75-value").text(s75);
+      d3.select("#s100-value").text(s100)
 
 
 
-	  //   bars.enter().append("rect")
-	  //       .attr("class", "bar")
-	  //       .attr("x", function(d) { return x(d.category); })
-	  //       .attr("height", function(d) { return height - y(d.value); })
-	  //       .attr("width", x.rangeBand())
-	  //       .attr("y", function(d) { return y(d.value); })
+  	  // percentIn = parseFloat(inp);
 
-	  //   bars.enter().append("text")
-	  //     .attr("class", "barLabel")
-	  //     .attr("x", function(d) { return x(d.category) + x.rangeBand()/2 - 4; })
-	  //     .attr("y", function(d) { return y(d.value) - 5; } )
-	  //     .text(function(d) { return d.value; });
+  	  d3.selectAll('.bar').remove();
 
-	  //   var labels = svg.selectAll(".barLabel")
+  	  // var lowerBound = parseFloat((100.0 - 2*percentIn) / (100.0 - percentIn));
 
-	  //   var barUpdate = d3.transition(bars)
-	  //     .transition().duration(500)
-	  //     .attr("height", function(d) { return height - y(d.value); })
-	  //     .attr("y", function(d) { return y(d.value); });
+  	  
+  	  // d3.tsv("data.tsv", type, function(error, data) {
 
-	  //   var labelUpdate = d3.transition(labels)
-	  //     .transition().duration(500)
-	  //     .attr("y", function(d) { return y(d.value) - 5; });
+
+
+  	    var bars = svg.selectAll(".bar")
+  	      .data(tmp);
+
+        // bars.enter()
+
+
+  	    bars.enter().append("rect")
+  	        .attr("class", "bar benefit")
+  	        .attr("x", x("spread .5"))
+  	        .attr("height",   function(d){return height - y(d.s50);})
+  	        .attr("width", x.rangeBand())
+  	        .attr("y",  function(d){return y(d.s50+excluded);})
+
+
+        bars.enter().append("rect")
+            .attr("class", "bar benefit")
+            .attr("x", x("spread .75"))
+            .attr("height",   function(d){return height - y(d.s75);})
+            .attr("width", x.rangeBand())
+            .attr("y",  function(d){return y(d.s75+excluded);})
+
+        bars.enter().append("rect")
+            .attr("class", "bar benefit")
+            .attr("x", x("spread 1"))
+            .attr("height",   function(d){return height - y(d.s100);})
+            .attr("width", x.rangeBand())
+            .attr("y",  function(d){return y(d.s100+excluded);})
+
+        bars.enter().append("rect")
+            .attr("class", "bar other")
+            .attr("x", x("spread .5"))
+            .attr("height", function(d){return height -y(sampleSize - d.s50 - excluded);})
+            .attr("width", x.rangeBand())
+            .attr("y", y(sampleSize) )
+
+        bars.enter().append("rect")
+            .attr("class", "bar other")
+            .attr("x", x("spread .75"))
+            .attr("height", function(d){return height -y(sampleSize - d.s75 - excluded);})
+            .attr("width", x.rangeBand())
+            .attr("y", y(sampleSize) )
+
+        bars.enter().append("rect")
+            .attr("class", "bar other")
+            .attr("x", x("spread 1"))
+            .attr("height", function(d){return height -y(sampleSize - d.s100 - excluded);})
+            .attr("width", x.rangeBand())
+            .attr("y", y(sampleSize) )
+
+
+        bars.enter()
+            .append("rect")
+            .attr("class", "bar excluded")
+            .attr("x", x("spread .75"))
+            .attr("height", height - y(excluded))
+            .attr("width", x.rangeBand())
+            .attr("y", y(excluded))
+
+        bars.enter()
+            .append("rect")
+            .attr("class", "bar excluded")
+            .attr("x", x("spread .5"))
+            .attr("height", height - y(excluded))
+            .attr("width", x.rangeBand())
+            .attr("y", y(excluded))
+
+        bars.enter()
+            .append("rect")
+            .attr("class", "bar excluded")
+            .attr("x", x("spread 1"))
+            .attr("height", height - y(excluded))
+            .attr("width", x.rangeBand())
+            .attr("y", y(excluded))
+
+
+  	    // var barUpdate = d3.transition(bars)
+  	    //   .transition().duration(500)
+  	    //   .attr("height", function(d) { return height - y(s50); })
+  	    //   .attr("y", function(d) { return y(s50); });
 
 	  // });
 
@@ -135,11 +204,10 @@ bars(3.66,.85);
 
 
 function estimate(rate,premium,spread){
-	// console.log(data,rate,premium,spread)
 	var value = $.grep(data, function(obj){
 		return obj.rate == rate && obj.premium == premium && obj.spread == spread
 	});
-	return value
+  return value[0].estimate
 }
 function roundRate(rate){
 	 if(rate > 3.58 && rate < 3.705){
