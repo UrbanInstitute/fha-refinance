@@ -182,6 +182,8 @@ body{
 
 #url_input{
   width: 49%;
+  box-shadow: none;
+  outline: none;
 }
 
 #embed_button{

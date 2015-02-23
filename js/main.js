@@ -8,12 +8,13 @@ var $labels = $('#right_labels');
 var graphic_aspect_width = 43;
 var graphic_aspect_height = 55;
 var mobile_threshold = 300;
+var pymChild = null;
 
-function drawGraphic(){
+function drawGraphic(container_width){
   $graphic.empty();
 
   var margin = {top: 20, right: 0, bottom: 90, left: 0},
-        width = $graphic.width() - margin.left - margin.right,
+        width = container_width - margin.left - margin.right,
         height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
 
     var bar_label;
@@ -444,8 +445,7 @@ function drawGraphic(){
 
 }
 
-drawGraphic();
-window.onresize = drawGraphic;
+pymChild = new pym.Child({ renderCallback: drawGraphic });
 
 
 
