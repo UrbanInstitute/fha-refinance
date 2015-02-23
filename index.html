@@ -119,17 +119,28 @@
 
 <!-- Bar chart text and graphic -->
 <section id="foo" class="container content-section text-center">
-      <div id = "controls">
-    <span class = "label_medium">Mortgage Rate</span><div class = "value-wrapper"><span id="rate-value"></span></div>
-    <span class = "label_medium">Mortgage Insurance Premium</span>
-      <input type="range" id="rate" min = "3" max = "5" step = ".01" name="rate" value = "3.66">
-	<div id="buttons">
-	  <button id="button_85">0.85%</button>
-	  <button id="button_135">1.35%</button>
+    <div class = "row">
+        <div class = "col-lg-4">
+    		<div id = "controls">
+	    		<span class = "label_medium">Mortgage Rate</span><div class = "value-wrapper"><span id="rate-value"></span></div>
+	    		<span class = "label_medium">Mortgage Insurance Premium</span>
+	      		<input type="range" id="rate" min = "3" max = "5" step = ".01" name="rate" value = "3.66">
+				<div id="buttons">
+		  			<button id="button_85">0.85%</button>
+		  			<button id="button_135">1.35%</button>
+				</div>
+  			</div>
+  		</div>
+  		<div class = "col-lg-8">
+    		<div id = "chart_container"></div>
+    		<div id = "right_labels">
+		    	<div id = "total_count" class = "text-left">Total: 6.6 million</div>
+	    		<div id = "not_eligible" class = "text-left">NOT ELIGIBLE<br/>2.2 million borrowers are lorem not eligible regardless of...</div>
+	    		<div id = "other" class = "text-left">ELIGIBLE TO REFINANCE, BUT NOT PARTICIPATING</div>
+	    		<div id = "benefit" class = "text-left">BORROWERS THAT WILL BENEFIT FROM REFINANCING</div>
+	    	</div>
+    	</div>
 	</div>
-  </div>
-
-    <div id = "chart_container"></div>
 <!--     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <p>If King wins his case, marketplace premiums will skyrocket. Without assistance, young, healthy individuals would flee the marketplaces at extremely high rates. Insurers would be left with a more expensive risk pool and would significantly increase premiums to compensate. We examined out-of-pocket premiums for individuals enrolled in subsidized nongroup plans under the ACA and the prices they would face if King passes. As the chart below shows, the lowest income policyholders would take the hardest hit, with premium costs rising from 2 to 38 percent of their annual income. For individual policyholders earning over $30,000 annually, premiums would rise to about one-fifth of their annual income – far higher than the 9.6 percent limit under the ACA.  Given these costs, two-thirds of all those enrolled in subsidized marketplace plans in the affected states would become uninsured.
