@@ -1,10 +1,16 @@
+
 /*Layout*/
+
+.row{
+  max-width: 880px;
+}
 #chart_container{
   width: 70%;
   float: left;
 }
 
 #right_labels{
+  font-size: 1em;
   margin-left:70%;
   padding-top: 40px;
 }
@@ -14,15 +20,21 @@
 }
 
 #not_eligible{
+  position: absolute;
+  margin-top: 3%;
   color: #adb5b9;
 }
 
 #other{
+  position: absolute;
+  margin-top: 20%;
   color: #8a8e8e;
 
 }
 
 #benefit{
+  position: absolute;
+  margin-top: 38%;
   color: #1696d2;
 
 }
@@ -41,10 +53,24 @@
   fill: #e6e7e8;
 }
 
+.bar_label.benefit{
+  font-size: 1.2em;
+  font-weight: 300
+}
+
+.bar_label.other{
+  font-size: 1em;
+  font-weight: 100
+}
+
+.bar_label.excluded{
+  font-size: 1em;
+  font-weight: 100
+}
 
 
 .label_medium{
-  font-size: 16pt;
+  font-size: 1.5em;
 }
 
 body{
@@ -75,6 +101,27 @@ body{
   display: none;
 }
 
+.x.axis text{
+  font-size: 1.75em;
+  font-weight: 100;
+  fill: #9f9896;
+}
+
+.s50_x_label{
+  color: #9f9896;
+  font-size: .75em;
+}
+
+.s75_x_label{
+  font-size: 1em;
+}
+
+.s100_x_label{
+  color: #9f9896;
+  font-size: .75em;
+}
+
+
 .graph {
   margin-top: 10px;
   display: block;
@@ -86,7 +133,6 @@ body{
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
-  width: 380px;
 }
 
 #slider{
@@ -98,52 +144,28 @@ body{
   position: relative;
   margin-top: 10px;
   left: 38px;
-  width: 300px;
 }
 
 .value-wrapper, .spread-wrapper{
-  display: inline-block;
+  display: inline;
+  margin-left: 60% !important;
   font-family: "Lato";
-  font-size: 25px;
   font-weight: bold;
   width: 64px;
-  margin-left: 5px;
-  color: #FA514B;
 }
 .spread-wrapper{
   width: 100px;
 }
 
-.acc_trigger{
-  font-size: 20px;
-  font-style: italic;
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
 
-.acc_container{
-  margin-left: auto;
-  margin-right: auto;
-  width: 750px;
-  line-height: 1.5em;
-}
 
-#scrollArrow{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -10px;
-}
 
-a:link, a:visited, a:hover, a:active {
-  text-decoration: none; color: black;
-}
+
+
 
 
 input[type=range] {
+    float: left;
     /*removes default webkit styles*/
     -webkit-appearance: none;
     
@@ -151,10 +173,10 @@ input[type=range] {
     border: 1px solid white;
     
     /*required for proper track sizing in FF*/
-    width: 300px;
+    width: 60%;
 }
 input[type=range]::-webkit-slider-runnable-track {
-    width: 300px;
+    width: 60%;
     height: 5px;
     border: none;
     border-radius: 3px;
@@ -191,7 +213,7 @@ input[type=range]:-moz-focusring{
 }
 
 input[type=range]::-ms-track {
-    width: 300px;
+    width: 60%;
     height: 5px;
     
     /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
@@ -232,15 +254,15 @@ input[type=range]:focus::-ms-fill-upper {
 input[type="range"]{
     -webkit-appearance: none;
     -moz-apperance: none;
-    width: 200px;
+    width: 60%;
     height: 5px;
     padding: 0;
     background-image: -webkit-gradient(
         linear,
         left top,
         right top,
-        color-stop(0.33, #ec008c),
-        color-stop(0.33, #888888)
+        color-stop(0.375, #ec008c),
+        color-stop(0.375, #888888)
     );
 }
 
@@ -248,15 +270,13 @@ input[type="range"]{
 
 
 button {
-    font-size: 16pt;
+    font-size: 1.5em;
     font-family: Lato;
     font-weight: 100;
     padding: 0px !important;
-    /*padding-bottom: 0.167em;*/
     border: 0px;
     height: 1.750em;
     width: 4.250em;
-    background-color: #EB7E10;
     color: #FFF;
     cursor: pointer;
 }
