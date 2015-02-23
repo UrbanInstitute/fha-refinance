@@ -70,7 +70,7 @@
 
 
 .label_medium{
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 body{
@@ -144,7 +144,28 @@ body{
 #rate, #premium{
   position: relative;
   margin-top: 10px;
-  left: 38px;
+}
+
+#title{
+  font-size: 1.4em;
+  /*width: 125%;*/
+}
+
+#subtitle{
+  /*width: 120%;*/
+  color: #8a8e8e;
+}
+
+#premium_label{
+  width: 100%;
+}
+
+#spacer{
+  height:39px;
+}
+
+#second_spacer{
+  height:22px;
 }
 
 .value-wrapper, .spread-wrapper{
@@ -158,6 +179,21 @@ body{
   width: 100px;
 }
 
+
+#url_input{
+  width: 49%;
+}
+
+#embed_button{
+  width: 49%;
+  font-size: 1em;
+  background: #1696d2 
+}
+
+#axis_title{
+  margin-left: 210px;
+  margin-top: -34px;
+}
 
 
 
@@ -268,9 +304,13 @@ input[type="range"]{
 }
 
 
-
+#buttons{
+  /*width: 115%;*/
+}
 
 button {
+    box-shadow: none;
+    outline: none;
     font-size: 1.5em;
     font-family: Lato;
     font-weight: 100;
@@ -280,14 +320,15 @@ button {
     width: 4.250em;
     color: #FFF;
     cursor: pointer;
+    width: 49%;
 }
 button.selected {
     background-color: #000;
-    border: 0pc
+    border: 0px
     color: #000;
 }
 button.disabled {
     background-color: #888888;
-    border: 0pc
+    border: 0px
     color: #888888;
 }

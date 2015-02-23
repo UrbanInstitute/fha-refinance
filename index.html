@@ -64,6 +64,13 @@
     <div class = "row" >
         <div class = "col-lg-4">
     		<div id = "controls">
+    			<div id = "title">
+    				How many would benefit from refinancing? It depends?
+    			</div>
+    			<div id = "subtitle">
+    				Adjust the mortgage rate and FHA mortgage insurance premium below to see how many borrowers would benefit from refinancing. For more information about how these numbers are calculated, read our recent blog post
+    			</div>
+    			<div id = "spacer"></div>
     			<div style = "width:100%">
 	    			<span class = "label_medium">Mortgage Rate</span>
 	    		</div>
@@ -71,7 +78,10 @@
 	    			<div class = "value-wrapper"><span id="rate-value"></span></div>
 	    			<input type="range" id="rate" min = "3" max = "5" step = ".01" name="rate" value = "3.66">
 	    		</div>
-	    		<span class = "label_medium">Mortgage Insurance Premium</span>
+				<div id = "second_spacer"></div>
+	    		<div id =  "premium_label">
+	    			<span class = "label_medium">FHA Mortgage Insurance Premium</span>
+	    		</div>
 	      		
 				<div id="buttons">
 		  			<button id="button_85">0.85%</button>
@@ -88,6 +98,16 @@
 	    		<div id = "benefit" class = "text-left">ELIGIBLE, REFINANCE IS COST EFFECTIVE</div>
 	    	</div>
     	</div>
+	</div>
+	<div class = "row" >
+	<div class = "col-lg-4" style = "text-align:left">
+		<div><em>Click the button below to generate embed code for this snapshot of the graphic</em></div>
+		<input id = "url_input"></input>
+		<button id = "embed_button">GET EMBED CODE</button>
+	</div>
+	<div class = "col-lg-8" id = "axis_title">
+		PERCENT SAVINGS IN ANNUAL MORTGAGE COSTS THAT</br> MOTIVATES A BORROWER TO REFINANCE
+	</div>
 	</div>
 
 </section>

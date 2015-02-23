@@ -6,13 +6,13 @@ d3.select("#button_135").attr("class","disabled")
 var $graphic = $('#chart_container');
 var $labels = $('#right_labels');
 var graphic_aspect_width = 43;
-var graphic_aspect_height = 49;
-var mobile_threshold = 350;
+var graphic_aspect_height = 55;
+var mobile_threshold = 300;
 
 function drawGraphic(){
   $graphic.empty();
 
-  var margin = {top: 20, right: 12, bottom: 90, left: 20},
+  var margin = {top: 20, right: 0, bottom: 90, left: 0},
         width = $graphic.width() - margin.left - margin.right,
         height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
 
@@ -72,7 +72,13 @@ function drawGraphic(){
 
 
 
-      function bindButtons(){
+  function bindButtons(){
+    $("#embed_button").click(function(e){
+      d3.select("#url_input").attr("value",
+        "<iframe src = \"http://datatools.urban.org/features/fha-refinance/index.html/?rate=" + $("#rate-value").text() + "&premium=" + premium_input + "\">"
+      )
+    })
+
     $('#buttons button').click(function(e){ 
       var thisObj = $(this);
       $('#buttons').removeClass('selected');
@@ -94,6 +100,7 @@ function drawGraphic(){
         .call(yAxis);
 
     	function drawBars(rate,premium){
+
     	  var rate = parseFloat(rate);
     	  var premium = parseFloat(premium);
 
@@ -106,9 +113,8 @@ function drawGraphic(){
         var summary = [{s50:s50,s75:s75,s100:s100}]
 
 
-    	  // d3.select("#rate").value = rate
-        var tmp = document.getElementById("rate")
-        tmp.value = rate
+    	  d3.select("#rate").value = rate
+
 
         // var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
     
@@ -215,6 +221,11 @@ function drawGraphic(){
     	    //   .attr("height", function(d) { return height - y(s50); })
     	    //   .attr("y", function(d) { return y(s50); });
 
+          bars.enter().append("rect")
+              .attr("x", x("0.50%")-8)
+              .attr("height", 1)
+              .attr("width", width-1)
+              .attr("y",  height)
 
 
           bars.enter().append("text")
@@ -352,7 +363,7 @@ function drawGraphic(){
 
           bars.enter().append("text")
               .attr("class","label s75_x_label")
-              .attr("x", x("0.75%")-x.rangeBand()/10)
+              .attr("x", x("0.75%")-x.rangeBand()/8)
               .attr("y",  height+50)
               .attr("dy", ".35em")
               .attr("fill","#000")
@@ -427,7 +438,15 @@ function drawGraphic(){
 
 
   });
+
+
+
+
 }
 
 drawGraphic();
 window.onresize = drawGraphic;
+
+
+
+
