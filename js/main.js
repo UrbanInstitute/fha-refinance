@@ -396,7 +396,8 @@ function drawGraphic(container_width){
       $('.x.axis text:contains("0.75%")').css("fill","#000").css("font-weight",700)
 
       if(width <  mobile_threshold){
-        d3.selectAll(".s75_x_label").attr("style","font-size:.8em")
+        console.log("testing")
+        d3.selectAll(".s75_x_label").attr("style","font-size:.8em !important")
       }
   	}
 
