@@ -31,7 +31,7 @@
 
 #other{
   position: absolute;
-  margin-top: 20%;
+  margin-top: 30%;
   color: #8a8e8e;
 
 }
@@ -59,17 +59,17 @@
 
 .bar_label.benefit{
   font-size: 1.2em;
-  font-weight: 300
+  font-weight: 400
 }
 
 .bar_label.other{
   font-size: 1em;
-  font-weight: 200
+  font-weight: 400
 }
 
 .bar_label.excluded{
   font-size: 1em;
-  font-weight: 200
+  font-weight: 400
 }
 
 
@@ -107,7 +107,7 @@ body{
 
 .x.axis text{
   font-size: 1.75em;
-  font-weight: 200;
+  font-weight: 300;
   fill: #9f9896;
 }
 
@@ -148,6 +148,12 @@ body{
 #rate, #premium{
   position: relative;
   margin-top: 10px;
+}
+
+#rate-value{
+  font-size: 1.5em;
+  position: absolute;
+  bottom: 106px;
 }
 
 #title{
@@ -256,7 +262,7 @@ input[type=range]:-moz-focusring{
 }
 
 input[type=range]::-ms-track {
-    width: 60%;
+    width: 80%;
     height: 5px;
     
     /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
@@ -297,7 +303,7 @@ input[type=range]:focus::-ms-fill-upper {
 input[type="range"]{
     -webkit-appearance: none;
     -moz-apperance: none;
-    width: 60%;
+    width: 80%;
     height: 5px;
     padding: 0;
     background-image: -webkit-gradient(
@@ -319,7 +325,7 @@ button {
     outline: none;
     font-size: 1.5em;
     font-family: Lato;
-    font-weight: 200;
+    font-weight: 400;
     padding: 0px !important;
     border: 0px;
     height: 1.750em;
