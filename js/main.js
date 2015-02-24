@@ -17,7 +17,7 @@ function drawGraphic(container_width){
   // }
   // container_width = $graphic.width()
   $graphic.empty();
-  var margin = {top: 20, right: 0, bottom: 140, left: 0},
+  var margin = {top: 20, right: 0, bottom: 160, left: 0},
         width = $graphic.width() - margin.left - margin.right,
         height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
 
@@ -382,17 +382,15 @@ function drawGraphic(container_width){
               .attr("y",  height+110)
               .attr("dy", ".35em")
               .attr("fill","#000")
-              .text("PERCENT SAVINGS IN ANNUAL MORTGAGE COSTS")
+              .text("PERCENT SAVINGS IN ANNUAL MORTGAGE COSTS THAT")
 
-          if(width > mobile_threshold){
             bars.enter().append("text")
                 .attr("class","label s75_x_label")
                 .attr("x", x("0.75%")-x.rangeBand()*.9 )
                 .attr("y",  height+130)
                 .attr("dy", ".35em")
                 .attr("fill","#000")
-                .text("THAT MOTIVATES A BORROWER TO REFINANCE")
-          }
+                .text("MOTIVATES A BORROWER TO REFINANCE")
 
 
       $('.x.axis text:contains("0.75%")').css("fill","#000").css("font-weight",700)
