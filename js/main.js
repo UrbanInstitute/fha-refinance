@@ -12,7 +12,6 @@ var pymChild = null;
 
 function drawGraphic(container_width){
   $graphic.empty();
-
   var margin = {top: 20, right: 0, bottom: 90, left: 0},
         width = container_width - margin.left - margin.right,
         height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
@@ -22,7 +21,6 @@ function drawGraphic(container_width){
       bar_label = " M";
       d3.select("#right_labels").attr("style","display:none")
       width = width*1.5
-      // drawGraphic()
     }
     else{
       bar_label = " million"
@@ -440,12 +438,10 @@ function drawGraphic(container_width){
 
   });
 
-
-
-
 }
 
 pymChild = new pym.Child({ renderCallback: drawGraphic });
+
 
 
 
