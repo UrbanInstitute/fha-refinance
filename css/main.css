@@ -9,6 +9,10 @@
   float: left;
 }
 
+.text-left{
+  font-weight: 700;
+}
+
 #right_labels{
   font-size: 1em;
   margin-left:70%;
