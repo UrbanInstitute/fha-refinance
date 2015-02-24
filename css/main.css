@@ -211,6 +211,10 @@ body{
 }
 
 
+.mobile_text{
+  font-size: .8em;
+}
+
 
 
 
@@ -294,12 +298,6 @@ input[type=range]::-ms-thumb {
     border-radius: 50%;
     background: #2397d0;
 }
-/*input[type=range]:focus::-ms-fill-lower {
-    background: #888;
-}
-input[type=range]:focus::-ms-fill-upper {
-    background: #ccc;
-}*/
 
 
 input[type="range"]{
