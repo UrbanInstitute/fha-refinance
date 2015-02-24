@@ -128,7 +128,12 @@ function drawGraphic(container_width){
     	  d3.select("#rate-value").text(rate);
     	  d3.select("#premium-value").text(premium);
         d3.select("#url_input").text(
-        "<iframe src = \"http://datatools.urban.org/features/fha-refinance/index.html?rate=" + $("#rate-value").text() + "&premium=" + premium_input + "\">"
+
+              "<div id=\"urban_iframe\"></div>" + '\n\t' + 
+              "<script type=\"text/javascript\" src=\"http://datatools.urban.org/features/fha-refinance/js/vendor/pym.js\"></script>"+"\n\t"+
+              "<script>"+"\n\t\t"+
+              "var pymParent = new pym.Parent('urban_iframe', \"http://datatools.urban.org/features/fha-refinance/index.html?rate=" + $("#rate-value").text() + "&premium=" + premium_input + "\", {});" + "\n\t\t"+
+              "</script>"
         )
 
         var s50_text = formatter(s50/1000000) + bar_label;
