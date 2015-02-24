@@ -129,11 +129,9 @@ function drawGraphic(container_width){
     	  d3.select("#premium-value").text(premium);
         d3.select("#url_input").text(
 
-              "<div id=\"urban_iframe\"></div>" + '\n\t' + 
-              "<script type=\"text/javascript\" src=\"http://datatools.urban.org/features/fha-refinance/js/vendor/pym.js\"></script>"+"\n\t"+
-              "<script>"+"\n\t\t"+
-              "var pymParent = new pym.Parent('urban_iframe', \"http://datatools.urban.org/features/fha-refinance/index.html?rate=" + $("#rate-value").text() + "&premium=" + premium_input + "\", {});" + "\n\t\t"+
-              "</script>"
+              "<div id=\"urban_iframe\"></div>" + '\n' + 
+              "<script type=\"text/javascript\" src=\"http://datatools.urban.org/features/fha-refinance/js/vendor/pym.js\"></script>"+"\n"+
+              "<script> var pymParent = new pym.Parent('urban_iframe', \"http://datatools.urban.org/features/fha-refinance/index.html?rate=" + $("#rate-value").text() + "&premium=" + premium_input + "\", {});" + "</script>"
         )
 
         var s50_text = formatter(s50/1000000) + bar_label;
@@ -384,14 +382,17 @@ function drawGraphic(container_width){
               .attr("y",  height+110)
               .attr("dy", ".35em")
               .attr("fill","#000")
-              .text("PERCENT SAVINGS IN ANNUAL MORTGAGE COSTS THAT")
-          bars.enter().append("text")
-              .attr("class","label s75_x_label")
-              .attr("x", x("0.75%")-x.rangeBand()*.9 )
-              .attr("y",  height+130)
-              .attr("dy", ".35em")
-              .attr("fill","#000")
-              .text("MOTIVATES A BORROWER TO REFINANCE")
+              .text("PERCENT SAVINGS IN ANNUAL MORTGAGE COSTS")
+
+          if(width > mobile_threshold){
+            bars.enter().append("text")
+                .attr("class","label s75_x_label")
+                .attr("x", x("0.75%")-x.rangeBand()*.9 )
+                .attr("y",  height+130)
+                .attr("dy", ".35em")
+                .attr("fill","#000")
+                .text("THAT MOTIVATES A BORROWER TO REFINANCE")
+          }
 
 
       $('.x.axis text:contains("0.75%")').css("fill","#000").css("font-weight",700)
