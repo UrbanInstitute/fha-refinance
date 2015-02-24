@@ -7,11 +7,11 @@ var $graphic = $('#chart_container');
 var $labels = $('#right_labels');
 var graphic_aspect_width = 43;
 var graphic_aspect_height = 55;
-var mobile_threshold = 300;
+var mobile_threshold = 375;
 
 function drawGraphic(){
   $graphic.empty();
-  var margin = {top: 20, right: 0, bottom: 90, left: 0},
+  var margin = {top: 20, right: 0, bottom: 140, left: 0},
         width = $graphic.width() - margin.left - margin.right,
         height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
 
@@ -122,16 +122,16 @@ function drawGraphic(){
     	  d3.select("#rate-value").text(rate);
     	  d3.select("#premium-value").text(premium);
         d3.select("#url_input").text(
-        "<iframe src = \"http://datatools.urban.org/features/fha-refinance/index.html/?rate=" + $("#rate-value").text() + "&premium=" + premium_input + "\">"
+        "<iframe src = \"http://datatools.urban.org/features/fha-refinance/index.html?rate=" + $("#rate-value").text() + "&premium=" + premium_input + "\">"
         )
 
         var s50_text = formatter(s50/1000000) + bar_label;
         var s75_text = formatter(s75/1000000) + bar_label;
         var s100_text = formatter(s100/1000000) + bar_label;
 
-        var s50_text_other = formatter((sampleSize - s50 - excluded)/1000000) + bar_label;
-        var s75_text_other = formatter((sampleSize - s75 - excluded)/1000000) + bar_label;
-        var s100_text_other = formatter((sampleSize - s100 - excluded)/1000000) + bar_label;
+        var s50_text_other = formatter(4.4 - +s50_text.replace(bar_label,"")) + bar_label;
+        var s75_text_other = formatter(4.4 - +s75_text.replace(bar_label,"")) + bar_label;
+        var s100_text_other = formatter(4.4 - +s100_text.replace(bar_label,"")) + bar_label;
 
         var text_excluded = "2.2" + bar_label;
 
@@ -365,7 +365,29 @@ function drawGraphic(){
               .attr("dy", ".35em")
               .attr("fill","#000")
               .text("MOST BORROWERS")
+
+
+          bars.enter().append("text")
+              .attr("class","label s75_x_label")
+              .attr("x", x("0.75%")-x.rangeBand()*1.22 )
+              .attr("y",  height+110)
+              .attr("dy", ".35em")
+              .attr("fill","#000")
+              .text("PERCENT SAVINGS IN ANNUAL MORTGAGE COSTS THAT")
+          bars.enter().append("text")
+              .attr("class","label s75_x_label")
+              .attr("x", x("0.75%")-x.rangeBand()*.9 )
+              .attr("y",  height+130)
+              .attr("dy", ".35em")
+              .attr("fill","#000")
+              .text("MOTIVATES A BORROWER TO REFINANCE")
+
+
       $('.x.axis text:contains("0.75%")').css("fill","#000").css("font-weight",700)
+
+      if(width <  mobile_threshold){
+        d3.selectAll(".s75_x_label").attr("style","font-size:.8em")
+      }
   	}
 
   d3.select("#rate").on("input", function() {

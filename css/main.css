@@ -38,7 +38,7 @@
 
 #benefit{
   position: absolute;
-  margin-top: 50%;
+  margin-top: 48%;
   color: #1696d2;
 
 }
@@ -153,7 +153,6 @@ body{
 #rate-value{
   font-size: 1.5em;
   position: absolute;
-  bottom: 106px;
 }
 
 #title{
@@ -194,17 +193,23 @@ body{
   width: 100%;
   box-shadow: none;
   outline: none;
+  font-size: 11px;
+  font-style: italic;
+  height: auto;
+  font-family: monospace;
+  background-color: #efefef;
+  border: none;
 }
 
 
 #axis_title{
-  margin-left: 210px;
-  margin-top: -74px;
+  /*margin-left: 210px;*/
+  /*margin-top: -50px;*/
 }
 
 
 #embed_text{
-  margin-top: -73px;
+  margin-top: 12px;
 }
 
 
