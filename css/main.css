@@ -2,7 +2,6 @@
 /*Layout*/
 
 .row{
-  max-width: 880px;
 }
 #chart_container{
   width: 70%;
@@ -78,7 +77,6 @@
 }
 
 body{
-  height: 800px;
   font-family: 'Lato';
 }
 

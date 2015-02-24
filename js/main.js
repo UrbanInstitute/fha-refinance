@@ -7,9 +7,15 @@ var $graphic = $('#chart_container');
 var $labels = $('#right_labels');
 var graphic_aspect_width = 43;
 var graphic_aspect_height = 55;
-var mobile_threshold = 375;
+var mobile_threshold = 305;
+var pymChild = null;
 
-function drawGraphic(){
+function drawGraphic(container_width){
+
+  // if (container_width == undefined || isNaN(container_width)) {
+  //     container_width = 350;
+  // }
+  // container_width = $graphic.width()
   $graphic.empty();
   var margin = {top: 20, right: 0, bottom: 140, left: 0},
         width = $graphic.width() - margin.left - margin.right,
@@ -457,11 +463,16 @@ function drawGraphic(){
 
 
   });
+    if (pymChild) {
+        pymChild.sendHeight();
+    }
 
 }
-
-drawGraphic()
-window.onresize = drawGraphic
+$(window).load(function() {
+    pymChild = new pym.Child({ renderCallback: drawGraphic });
+});
+// drawGraphic()
+// window.onresize = drawGraphic
 
 
 
