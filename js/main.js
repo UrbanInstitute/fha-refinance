@@ -71,11 +71,7 @@ function drawGraphic(){
 
 
   function bindButtons(){
-    $("#embed_button").click(function(e){
-      d3.select("#url_input").attr("value",
-        "<iframe src = \"http://datatools.urban.org/features/fha-refinance/index.html/?rate=" + $("#rate-value").text() + "&premium=" + premium_input + "\">"
-      )
-    })
+
 
     $('#buttons button').click(function(e){ 
       var thisObj = $(this);
@@ -125,15 +121,17 @@ function drawGraphic(){
 
     	  d3.select("#rate-value").text(rate);
     	  d3.select("#premium-value").text(premium);
-        
+        d3.select("#url_input").text(
+        "<iframe src = \"http://datatools.urban.org/features/fha-refinance/index.html/?rate=" + $("#rate-value").text() + "&premium=" + premium_input + "\">"
+        )
 
         var s50_text = formatter(s50/1000000) + bar_label;
         var s75_text = formatter(s75/1000000) + bar_label;
         var s100_text = formatter(s100/1000000) + bar_label;
 
-        var s50_text_other = formatter((sampleSize - s50)/1000000) + bar_label;
-        var s75_text_other = formatter((sampleSize - s75)/1000000) + bar_label;
-        var s100_text_other = formatter((sampleSize - s100)/1000000) + bar_label;
+        var s50_text_other = formatter((sampleSize - s50 - excluded)/1000000) + bar_label;
+        var s75_text_other = formatter((sampleSize - s75 - excluded)/1000000) + bar_label;
+        var s100_text_other = formatter((sampleSize - s100 - excluded)/1000000) + bar_label;
 
         var text_excluded = "2.2" + bar_label;
 
@@ -141,6 +139,7 @@ function drawGraphic(){
 
     	  d3.selectAll('.bar').remove();
         d3.selectAll('.label').remove();
+        d3.selectAll('.bar_label').remove();
 
 
 
@@ -277,7 +276,7 @@ function drawGraphic(){
           bars.enter().append("text")
               .attr("class","bar_label other")
               .attr("x", x("0.50%")+x.rangeBand()/5)
-              .attr("y",  height - y(excluded*1.3))
+              .attr("y", function(d){return y(sampleSize-excluded - (sampleSize - excluded - d.s50)/2)})
               .attr("dy", ".35em")
               .attr("fill","#71797a")
               .text(s50_text_other)
@@ -285,7 +284,7 @@ function drawGraphic(){
           bars.enter().append("text")
               .attr("class","bar_label other")
               .attr("x", x("0.75%")+x.rangeBand()/5)
-              .attr("y", height - y(excluded*1.3) )
+              .attr("y", function(d){return y(sampleSize-excluded - (sampleSize - excluded - d.s75)/2)})
               .attr("dy", ".35em")
               .attr("fill","#71797a")
               .text(s75_text_other)
@@ -294,7 +293,7 @@ function drawGraphic(){
           bars.enter().append("text")
               .attr("class","bar_label other")
               .attr("x", x("1.0%")+x.rangeBand()/5)
-              .attr("y",  height - y(excluded*1.3))
+              .attr("y", function(d){return y(sampleSize-excluded - (sampleSize - excluded - d.s100)/2)})
               .attr("dy", ".35em")
               .attr("fill","#71797a")
               .text(s100_text_other)
@@ -304,7 +303,7 @@ function drawGraphic(){
           bars.enter().append("text")
               .attr("class","bar_label excluded")
               .attr("x", x("0.50%")+x.rangeBand()/5)
-              .attr("y",  height - y(excluded*0.3))
+              .attr("y",  y(sampleSize - excluded/2))
               .attr("dy", ".35em")
               .attr("fill","#a4a8ab")
               .text(text_excluded)
@@ -312,7 +311,7 @@ function drawGraphic(){
           bars.enter().append("text")
               .attr("class","bar_label excluded")
               .attr("x", x("0.75%")+x.rangeBand()/5)
-              .attr("y",  height - y(excluded*0.3))
+              .attr("y",  y(sampleSize - excluded/2))
               .attr("dy", ".35em")
               .attr("fill","#a4a8ab")
               .text(text_excluded)
@@ -321,7 +320,7 @@ function drawGraphic(){
           bars.enter().append("text")
               .attr("class","bar_label excluded")
               .attr("x", x("1.0%")+x.rangeBand()/5)
-              .attr("y",  height - y(excluded*0.3))
+              .attr("y",  y(sampleSize - excluded/2))
               .attr("dy", ".35em")
               .attr("fill","#a4a8ab")
               .text(text_excluded)
@@ -374,7 +373,7 @@ function drawGraphic(){
     
     $(this).css('background-image',
                 '-webkit-gradient(linear, left top, right top, '
-                + 'color-stop(' + val + ', #ec008c), '
+                + 'color-stop(' + val + ', #2397d0), '
                 + 'color-stop(' + val + ', #888888)'
                 + ')'
                 );
@@ -407,8 +406,8 @@ function drawGraphic(){
     return value[0].estimate
   }
   function roundRate(rate){
-  	 if(rate > 3.58 && rate < 3.705){
-  	 	return 3.66
+  	 if(rate > +3.58 && rate < +3.705){
+  	 	return +3.66
   	 }
   	 else{
   		return (Math.round(rate * 4) / 4).toFixed(2);

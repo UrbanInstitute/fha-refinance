@@ -171,7 +171,7 @@ body{
 }
 
 #spacer{
-  height:39px;
+  height:22px;
 }
 
 #second_spacer{
@@ -191,22 +191,21 @@ body{
 
 
 #url_input{
-  width: 49%;
+  width: 100%;
   box-shadow: none;
   outline: none;
 }
 
-#embed_button{
-  width: 49%;
-  font-size: 1em;
-  background: #1696d2 
-}
 
 #axis_title{
   margin-left: 210px;
   margin-top: -74px;
 }
 
+
+#embed_text{
+  margin-top: -73px;
+}
 
 
 
@@ -236,7 +235,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 12px;
     width: 12px;
     border-radius: 50%;
-    background: #ec008c;
+    background: #2397d0;
     margin-top: -3px;
 }
 input[type=range]:focus {
@@ -252,7 +251,7 @@ input[type=range]::-moz-range-thumb {
     height: 12px;
     width: 12px;
     border-radius: 50%;
-    background: #ec008c;
+    background: #2397d0;
 }
 
 /*hide the outline behind the border*/
@@ -290,7 +289,7 @@ input[type=range]::-ms-thumb {
     height: 12px;
     width: 12px;
     border-radius: 50%;
-    background: #ec008c;
+    background: #2397d0;
 }
 /*input[type=range]:focus::-ms-fill-lower {
     background: #888;
@@ -310,15 +309,12 @@ input[type="range"]{
         linear,
         left top,
         right top,
-        color-stop(0.375, #ec008c),
+        color-stop(0.375, #2397d0),
         color-stop(0.375, #888888)
     );
 }
 
 
-#buttons{
-  /*width: 115%;*/
-}
 
 button {
     box-shadow: none;
@@ -335,9 +331,9 @@ button {
     width: 49%;
 }
 button.selected {
-    background-color: #000;
+    background-color: #2397d0;
     border: 0px
-    color: #000;
+    color: #2397d0;
 }
 button.disabled {
     background-color: #888888;
