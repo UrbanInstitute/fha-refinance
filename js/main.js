@@ -440,6 +440,7 @@ function drawGraphic(){
 }
 
 drawGraphic()
+window.onresize = drawGraphic
 
 
 
