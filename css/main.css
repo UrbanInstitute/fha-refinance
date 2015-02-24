@@ -64,12 +64,12 @@
 
 .bar_label.other{
   font-size: 1em;
-  font-weight: 100
+  font-weight: 200
 }
 
 .bar_label.excluded{
   font-size: 1em;
-  font-weight: 100
+  font-weight: 200
 }
 
 
@@ -107,7 +107,7 @@ body{
 
 .x.axis text{
   font-size: 1.75em;
-  font-weight: 100;
+  font-weight: 200;
   fill: #9f9896;
 }
 
@@ -319,7 +319,7 @@ button {
     outline: none;
     font-size: 1.5em;
     font-family: Lato;
-    font-weight: 100;
+    font-weight: 200;
     padding: 0px !important;
     border: 0px;
     height: 1.750em;
