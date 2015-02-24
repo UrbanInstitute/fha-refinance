@@ -12,12 +12,8 @@ var pymChild = null;
 
 function drawGraphic(container_width){
 
-  // if (container_width == undefined || isNaN(container_width)) {
-  //     container_width = 350;
-  // }
-  // container_width = $graphic.width()
   $graphic.empty();
-  var margin = {top: 20, right: 0, bottom: 160, left: 0},
+  var margin = {top: 20, right: 5, bottom: 160, left: 0},
         width = $graphic.width() - margin.left - margin.right,
         height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
 
@@ -114,16 +110,6 @@ function drawGraphic(container_width){
 
 
     	  d3.select("#rate").value = rate
-
-
-        // var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
-    
-        // $(tmp).css('background-image',
-        //         '-webkit-gradient(linear, left top, right top, '
-        //         + 'color-stop(' + val + ', #ec008c), '
-        //         + 'color-stop(' + val + ', #888888)'
-        //         + ')'
-        //         );
 
     	  d3.select("#rate-value").text(rate);
     	  d3.select("#premium-value").text(premium);
@@ -222,10 +208,6 @@ function drawGraphic(container_width){
               .attr("height", height - y(excluded))
               .attr("width", x.rangeBand())
               .attr("y", y(sampleSize))
-    	    // var barUpdate = d3.transition(bars)
-    	    //   .transition().duration(500)
-    	    //   .attr("height", function(d) { return height - y(s50); })
-    	    //   .attr("y", function(d) { return y(s50); });
 
           bars.enter().append("rect")
               .attr("x", x("0.50%")-8)
@@ -416,7 +398,6 @@ function drawGraphic(container_width){
   var urlVars = getUrlVars();
   if (urlVars.hasOwnProperty("rate")){
     init_rate = urlVars["rate"]
-     // = init_rated3.select("#rate").value
   }
   else{
     init_rate = 3.75
@@ -475,8 +456,7 @@ function drawGraphic(container_width){
 $(window).load(function() {
     pymChild = new pym.Child({ renderCallback: drawGraphic });
 });
-// drawGraphic()
-// window.onresize = drawGraphic
+
 
 
 
