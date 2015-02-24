@@ -1,68 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@urbaninstitute">
-    <meta name="twitter:creator" content="@urbaninstitute">
-    <meta name="twitter:title" content="How Better Data Can Reduce Domestic Violence">
-    <meta name="twitter:description" content="Better data about those being victimized and their experiences could help service providers reach these groups, better meet their needs, and reduce domestic violence.">
-    <meta name="twitter:image" content="http://datatools.urban.org/Features/domestic-violence-data/img/shutterstock_220408021_web.jpg">
-
-    <meta property="og:title" content="How Better Data Can Reduce Domestic Violence" />
-    <meta property="og:description" content="Better data about those being victimized and their experiences could help service providers reach these groups, better meet their needs, and reduce domestic violence." />
-
-    <meta property="og:image" content="http://datatools.urban.org/Features/domestic-violence-data/img/shutterstock_220408021_web.jpg" />
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="400">
-    <meta property="og:image:height" content="400">
-    <meta property="og:url" content="http://urbn.is/dv">
-
-    
-    <title>title</title>
-<link rel="icon" target="_blank" href="favicon.ico" type="image/x-icon">
-
-    <!-- Bootstrap Core CSS -->
-    <link target="_blank" href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link target="_blank" href="css/grayscale.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <!-- Custom Fonts -->
     <link target="_blank" href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link target="_blank" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
-
-
-
-
-
-
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!--  -->
-
+<div id = "main-content">
 <!-- Bar chart text and graphic -->
-<section id="main-content" class="container content-section text-center">
     <div class = "row" >
-        <div class = "col-lg-4">
+        <div class = "col-md-4">
     		<div id = "controls">
     			<div id = "title">
     				How many would benefit from refinancing? It depends?
@@ -71,10 +24,10 @@
     				Adjust the mortgage rate and FHA mortgage insurance premium below to see how many borrowers would benefit from refinancing. For more information about how these numbers are calculated, read our recent blog post
     			</div>
     			<div id = "spacer"></div>
-    			<div style = "width:100%">
+    			<div >
 	    			<span class = "label_medium">Mortgage Rate</span>
 	    		</div>
-	    		<div style = "width:100%">
+	    		<div >
 	    			<div class = "value-wrapper"><span id="rate-value"></span></div>
 	    			<input type="range" id="rate" min = "3" max = "5" step = ".01" name="rate" value = "3.66">
 	    		</div>
@@ -89,10 +42,10 @@
 				</div>
   			</div>
   		</div>
-  		<div class = "col-lg-8">
+  		<div class = "col-md-8">
     		<div id = "chart_container"></div>
     		<div id = "right_labels">
-		    	<div id = "total_count" class = "text-left">&mdash; Total: 6.6 million</div>
+		    	<div id = "total_count" class = "text-left">--Total: 6.6 million</div>
 	    		<div id = "not_eligible" class = "text-left">NOT ELIGIBLE<br/>Originated before June 2009, delinquent, modified, or with a term &le; 15 years</div>
 	    		<div id = "other" class = "text-left">ELIGIBLE, REFINANCE NOT COST EFFECTIVE</div>
 	    		<div id = "benefit" class = "text-left">ELIGIBLE, REFINANCE IS COST EFFECTIVE</div>
@@ -100,27 +53,16 @@
     	</div>
 	</div>
 	<div class = "row" >
-	<div class = "col-lg-4" style = "text-align:left">
-		<div><em>Click the button below to generate embed code for this snapshot of the graphic. Double click the text to select it.</em></div>
-		<input id = "url_input"></input>
-		<button id = "embed_button">GET EMBED CODE</button>
+		<div class = "col-md-4" style = "text-align:left">
+			<div><em>Click the button below to generate embed code for this snapshot of the graphic. Double click the text to select it.</em></div>
+			<input id = "url_input"></input>
+			<button id = "embed_button">GET EMBED CODE</button>
+		</div>
+		<div class = "col-md-8" id = "axis_title">
+			PERCENT SAVINGS IN ANNUAL MORTGAGE COSTS THAT</br> MOTIVATES A BORROWER TO REFINANCE
+		</div>
 	</div>
-	<div class = "col-lg-8" id = "axis_title">
-		PERCENT SAVINGS IN ANNUAL MORTGAGE COSTS THAT</br> MOTIVATES A BORROWER TO REFINANCE
-	</div>
-	</div>
-
-</section>
-
-
-
-
-
-
-
-
-
-    
+<div>
 
 
     <!-- jQuery -->
