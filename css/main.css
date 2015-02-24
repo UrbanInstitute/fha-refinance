@@ -353,6 +353,9 @@ button.disabled {
             letter-spacing: 1.5pt;
             text-align: right;
             font-size: 0.8em;
+            position: fixed;
+            bottom: 1px;
+            right: 1px;
         }
         #credit a {
             text-decoration: none;
