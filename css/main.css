@@ -215,7 +215,7 @@ body{
     width: 60%;
 }
 
-#rate.nonIE {
+#rate {
     float: left;
     /*removes default webkit styles*/
     -webkit-appearance: none;
@@ -226,13 +226,13 @@ body{
     /*required for proper track sizing in FF*/
     width: 60%;
 }
-#rate.nonIE::-webkit-slider-runnable-track {
+#rate::-webkit-slider-runnable-track {
     width: 60%;
     height: 5px;
     border: none;
     border-radius: 3px;
 }
-#rate.nonIE::-webkit-slider-thumb {
+#rate::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
     height: 12px;
@@ -241,11 +241,11 @@ body{
     background: #2397d0;
     margin-top: -3px;
 }
-#rate.nonIE:focus {
+#rate:focus {
     outline: none;
 }
 
-#rate.nonIE::-moz-range-thumb {
+#rate::-moz-range-thumb {
     border: none;
     height: 12px;
     width: 12px;
@@ -254,12 +254,12 @@ body{
 }
 
 /*hide the outline behind the border*/
-#rate.nonIE:-moz-focusring{
+#rate:-moz-focusring{
     outline: 1px solid white;
     outline-offset: -3px;
 }
 
-#rate.nonIE::-ms-track {
+#rate::-ms-track {
     width: 80%;
     height: 5px;
     
@@ -274,16 +274,16 @@ body{
     color: transparent;
 
 }
-#rate.nonIE::-ms-fill-lower {
+#rate::-ms-fill-lower {
     background: #888;
     border-radius: 10px;
 }
-#rate.nonIE::-ms-fill-upper {
+#rate::-ms-fill-upper {
     background: #888;
     border-radius: 10px;
 }
 
-#rate.nonIE::-ms-thumb {
+#rate::-ms-thumb {
     border: none;
     height: 12px;
     width: 12px;
@@ -292,7 +292,7 @@ body{
 }
 
 
-#rate.nonIE{
+#rate{
     -webkit-appearance: none;
     -moz-apperance: none;
     width: 80%;
