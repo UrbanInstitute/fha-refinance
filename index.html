@@ -125,8 +125,43 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-392952-17', 'auto');
+  ga('create', 'UA-57529944-1', 'auto');
   ga('send', 'pageview');
+
+</script>
+<script src = "js/vendor/custom-analytics.min.js"></script>
+<script>
+$("#button_85")
+.custom_analytics('track',{
+    category: "button",
+    action: "click",
+    label: "object_ID",
+    interaction: true
+});
+
+$("#button_135")
+.custom_analytics('track',{
+    category: "button",
+    action: "click",
+    label: "object_ID",
+    interaction: true
+});
+
+$("#rate")
+.custom_analytics('track',{
+    category: "slider",
+    action: "click",
+    label: "object_ID",
+    interaction: true
+});
+
+$("#url_input")
+.custom_analytics('track',{
+    category: "textarea",
+    action: "copy",
+    label: "object_ID",
+    interaction: true
+});
 
 </script>
     
