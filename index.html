@@ -28,12 +28,16 @@
 
     <!--[if IE]>
         <script>
-            document.getElementById("rate").className = "";
+            document.getElementById("rate").remove()
+            $(function() {
+                $(".ie-slider").slider();
+                $('.id-slider').attr('id', 'rate');
+            });
         </script>
     <![endif]-->
     <!--[if !IE]>
         <script>
-            document.getElementById("rate").className = "nonIE";
+            $('.ie-slider').remove()
         </script>
     <![endif]-->
 
@@ -66,6 +70,7 @@
 	    		<div style = "width:100%">
 	    			<div class = "value-wrapper"><span id="rate-value"></span></div>
 	    			<input type="range" id="rate" min = "3" max = "5" step = ".01" name="rate" value = "3.75">
+                    <div class = "ie-slider"></div>
 	    		</div>
 				<div id = "second_spacer"></div>
 	    		<div id =  "premium_label">
