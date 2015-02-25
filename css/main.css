@@ -346,3 +346,11 @@ button.disabled {
         #urban {
             color: #1696d2;
         }
+
+#github{
+  letter-spacing:0pt !important;
+}
+
+#github-link{
+  color:#428bca;
+}
