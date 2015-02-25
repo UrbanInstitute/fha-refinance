@@ -41,44 +41,44 @@
     </div>
 
     <div class = "row" >
-        <div class = "col-sm-4">
-    		<div id = "controls">
-    			<div id = "title">
-    				How many would benefit from refinancing? It depends.
-    			</div>
-    			<div id = "subtitle">
-    				Adjust the mortgage rate and FHA mortgage insurance premium below to see how many borrowers would benefit from refinancing, out of the 6.6 million total FHA borrowers. For more information about how these numbers are calculated, read <a href = "http://blog.metrotrends.org/2015/02/fha-borrowers-save-money-refinancing-today/?utm_source=iContact&utm_medium=email&utm_campaign=Housing%20Finance%20Policy%20Center&utm_content=HFPC+newsletter+%28chartbook%29+2%2F18%2F2015" target="_blank">our recent blog post</a>
-    			</div>
-    			<div id = "spacer"></div>
-    			<div style = "width:100%">
-	    			<span class = "label_medium">Mortgage Rate</span>
-	    		</div>
-	    		<div style = "width:100%">
-	    			<div class = "value-wrapper"><span id="rate-value"></span></div>
-	    			<input type="range" id="rate" min = "3" max = "5" step = ".01" name="rate" value = "3.75">
+        <div class = "col-sm-8 col-sm-push-4">
+            <div id = "chart_container"></div>
+            <div id = "right_labels">
+                <div id = "not_eligible" class = "text-left">NOT ELIGIBLE<br/><span style = "font-weight: 300!important"><em>Originated before June 2009, delinquent, modified, or with a term &le; 15 years</em></span></div>
+                <div id = "other" class = "text-left">ELIGIBLE, REFINANCE NOT COST EFFECTIVE</div>
+                <div id = "benefit" class = "text-left">ELIGIBLE, REFINANCE IS COST EFFECTIVE</div>
+            </div>
+        </div>
+        <div class = "col-sm-4 col-sm-pull-8" style = "margin-bottom:10px ">
+            <div id = "controls">
+                <div id = "title">
+                    How many would benefit from refinancing? It depends.
+                </div>
+                <div id = "subtitle">
+                    Adjust the mortgage rate and FHA mortgage insurance premium below to see how many borrowers would benefit from refinancing, out of the 6.6 million total FHA borrowers. For more information about how these numbers are calculated, read <a href = "http://blog.metrotrends.org/2015/02/fha-borrowers-save-money-refinancing-today/?utm_source=iContact&utm_medium=email&utm_campaign=Housing%20Finance%20Policy%20Center&utm_content=HFPC+newsletter+%28chartbook%29+2%2F18%2F2015" target="_blank">our recent blog post</a>
+                </div>
+                <div id = "spacer"></div>
+                <div style = "width:100%">
+                    <span class = "label_medium">Mortgage Rate</span>
+                </div>
+                <div style = "width:100%">
+                    <div class = "value-wrapper"><span id="rate-value"></span></div>
+                    <input type="range" id="rate" min = "3" max = "5" step = ".01" name="rate" value = "3.75">
                     <div class = "ie-slider"></div>
-	    		</div>
-				<div id = "second_spacer"></div>
-	    		<div id =  "premium_label">
-	    			<span class = "label_medium">FHA Mortgage Insurance Premium</span>
-	    		</div>
-	      		
-				<div id="buttons">
-		  			<button id="button_85">0.85%</button>
-		  			<button id="button_135">1.35%</button>
-				</div>
+                </div>
+                <div id = "second_spacer"></div>
+                <div id =  "premium_label">
+                    <span class = "label_medium">FHA Mortgage Insurance Premium</span>
+                </div>
+                
+                <div id="buttons">
+                    <button id="button_85">0.85%</button>
+                    <button id="button_135">1.35%</button>
+                </div>
                 <div id = "embed_text"><em>Copy and paste code to embed this graphic with current parameters</em></div>
                 <textarea rows = "5" columns = "35" id = "url_input"></textarea>
-  			</div>
-  		</div>
-  		<div class = "col-sm-8">
-    		<div id = "chart_container"></div>
-    		<div id = "right_labels">
-	    		<div id = "not_eligible" class = "text-left">NOT ELIGIBLE<br/><span style = "font-weight: 300!important"><em>Originated before June 2009, delinquent, modified, or with a term &le; 15 years</em></span></div>
-	    		<div id = "other" class = "text-left">ELIGIBLE, REFINANCE NOT COST EFFECTIVE</div>
-	    		<div id = "benefit" class = "text-left">ELIGIBLE, REFINANCE IS COST EFFECTIVE</div>
-	    	</div>
-    	</div>
+            </div>
+        </div>
 	</div>
 
 </div>
