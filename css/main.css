@@ -140,12 +140,12 @@ body{
 }
 
 
-#rate, #premium{
+input#rate, #premium{
   position: relative;
   margin-top: 10px;
 }
 
-#rate-value{
+input#rate-value{
   font-size: 1.5em;
   position: absolute;
 }
@@ -205,7 +205,7 @@ body{
 
 
 
-#rate {
+input#rate {
     float: left;
     
     /*fix for FF unable to apply focus style bug */
@@ -215,7 +215,7 @@ body{
     width: 60%;
 }
 
-#rate {
+input#rate {
     float: left;
     /*removes default webkit styles*/
     -webkit-appearance: none;
@@ -226,13 +226,13 @@ body{
     /*required for proper track sizing in FF*/
     width: 60%;
 }
-#rate::-webkit-slider-runnable-track {
+input#rate::-webkit-slider-runnable-track {
     width: 60%;
     height: 5px;
     border: none;
     border-radius: 3px;
 }
-#rate::-webkit-slider-thumb {
+input#rate::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
     height: 12px;
@@ -241,11 +241,11 @@ body{
     background: #2397d0;
     margin-top: -3px;
 }
-#rate:focus {
+input#rate:focus {
     outline: none;
 }
 
-#rate::-moz-range-thumb {
+input#rate::-moz-range-thumb {
     border: none;
     height: 12px;
     width: 12px;
@@ -254,12 +254,12 @@ body{
 }
 
 /*hide the outline behind the border*/
-#rate:-moz-focusring{
+input#rate:-moz-focusring{
     outline: 1px solid white;
     outline-offset: -3px;
 }
 
-#rate::-ms-track {
+input#rate::-ms-track {
     width: 80%;
     height: 5px;
     
@@ -274,16 +274,16 @@ body{
     color: transparent;
 
 }
-#rate::-ms-fill-lower {
+input#rate::-ms-fill-lower {
     background: #888;
     border-radius: 10px;
 }
-#rate::-ms-fill-upper {
+input#rate::-ms-fill-upper {
     background: #888;
     border-radius: 10px;
 }
 
-#rate::-ms-thumb {
+input#rate::-ms-thumb {
     border: none;
     height: 12px;
     width: 12px;
@@ -292,7 +292,7 @@ body{
 }
 
 
-#rate{
+input#rate{
     -webkit-appearance: none;
     -moz-apperance: none;
     width: 80%;

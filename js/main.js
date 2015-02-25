@@ -81,7 +81,7 @@ function drawGraphic(container_width){
       thisObj.removeClass('disabled').addClass('selected').siblings().addClass('disabled');
       var val = thisObj.attr('id')=='button_85' ? .85 : 1.35;    
         premium_input = val;
-        drawBars(d3.select('#rate')[0][0].value,+val);
+        drawBars(getValue(d3.select('#rate')),+val);
     })
   }
   bindButtons();
@@ -95,8 +95,17 @@ function drawGraphic(container_width){
         .attr("class", "y axis")
         .call(yAxis);
 
-    	function drawBars(rate,premium){
+      function getValue(rate){
+        if (typeof(rate[0]) !== "undefined"){
+          return rate[0][0].value
+        }
+        else{
+          return $( "#rate" ).slider( "option", "value" )
+        }
 
+      }
+
+    	function drawBars(rate,premium){
     	  var rate = parseFloat(rate);
     	  var premium = parseFloat(premium);
 
@@ -108,8 +117,8 @@ function drawGraphic(container_width){
         var formatter = d3.format(".1f")
         var summary = [{s50:s50,s75:s75,s100:s100}]
 
-
-    	  d3.select("#rate").value = rate
+        // console.log(+getValue(d3.select("#rate")))
+    	  rate = +getValue(d3.select("#rate"))
 
     	  d3.select("#rate-value").text(rate);
     	  d3.select("#premium-value").text(premium);
@@ -394,6 +403,12 @@ function drawGraphic(container_width){
     drawBars(+this.value, premium_input);
   });
 
+  d3.select(".ui-slider-handle").on("click", function() {
+    var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+    
+    drawBars(+getValue(this), premium_input);
+  });
+
   var init_rate,init_premium;
   var urlVars = getUrlVars();
   if (urlVars.hasOwnProperty("rate")){
@@ -454,6 +469,28 @@ function drawGraphic(container_width){
 
 }
 $(window).load(function() {
+      function msieversion() {
+
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf("MSIE ");
+
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)){      // If Internet Explorer, return version number
+                $('input#rate').remove()
+                $(".ie-slider").slider({
+                  min:3,
+                  max: 5,
+                  step: .01,
+                  value: 3.75
+                });
+                $('.ie-slider').attr('id', 'rate');
+            }
+            else{                 // If another browser, return 0
+                $('.ie-slider').remove()
+            }
+
+       return false;
+    }
+    msieversion()
     pymChild = new pym.Child({ renderCallback: drawGraphic });
 });
 
