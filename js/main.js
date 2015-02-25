@@ -482,15 +482,7 @@ $(window).load(function() {
                 $('.ie-slider').attr('id', 'rate');
             }
             else{                 // If another browser, return 0
-                // $('.ie-slider').remove()
-                               $('input#rate').remove()
-                $(".ie-slider").slider({
-                  min:3,
-                  max: 5,
-                  step: .01,
-                  value: 3.75
-                });
-                $('.ie-slider').attr('id', 'rate');
+                $('.ie-slider').remove()
             }
 
        return false;
