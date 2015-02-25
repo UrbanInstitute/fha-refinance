@@ -13,7 +13,7 @@ var pymChild = null;
 function drawGraphic(container_width){
 
   $graphic.empty();
-  var margin = {top: 20, right: 5, bottom: 160, left: 0},
+  var margin = {top: 20, right: 0, bottom: 160, left: 0},
         width = $graphic.width() - margin.left - margin.right,
         height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
 
