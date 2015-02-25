@@ -328,7 +328,7 @@ function drawGraphic(container_width){
               .text("AGGRESSIVE")
           bars.enter().append("text")
               .attr("class","label s50_x_label")
-              .attr("x", x("0.50%")+x.rangeBand()/5.9)
+              .attr("x", x("0.50%")+x.rangeBand()/6)
               .attr("y",  height+62)
               .attr("dy", ".35em")
               .attr("fill","#a4a8ab")
