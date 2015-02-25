@@ -96,11 +96,11 @@ function drawGraphic(container_width){
         .call(yAxis);
 
       function getValue(rate){
-        if (typeof(rate[0]) !== "undefined"){
+        if (d3.select("#rate")[0][0].tagName !== "DIV"){
           return rate[0][0].value
         }
         else{
-          return $( "#rate" ).slider( "option", "value" )
+          return +$( "#rate" ).slider( "option", "value" )
         }
 
       }
@@ -119,6 +119,7 @@ function drawGraphic(container_width){
 
         // console.log(+getValue(d3.select("#rate")))
     	  rate = +getValue(d3.select("#rate"))
+        // console.log(rate)
 
     	  d3.select("#rate-value").text(rate);
     	  d3.select("#premium-value").text(premium);
@@ -400,7 +401,7 @@ function drawGraphic(container_width){
                 + 'color-stop(' + val + ', #888888)'
                 + ')'
                 );
-    drawBars(+this.value, premium_input);
+    drawBars(+getValue(this), premium_input);
   });
 
   d3.select(".ui-slider-handle").on("click", function() {
@@ -442,10 +443,6 @@ function drawGraphic(container_width){
   	 }
   }
 
-  function type(d) {
-    d.value = +d.value;
-    return d;
-  }
 
   function getUrlVars()
   {
@@ -485,7 +482,15 @@ $(window).load(function() {
                 $('.ie-slider').attr('id', 'rate');
             }
             else{                 // If another browser, return 0
-                $('.ie-slider').remove()
+                // $('.ie-slider').remove()
+                               $('input#rate').remove()
+                $(".ie-slider").slider({
+                  min:3,
+                  max: 5,
+                  step: .01,
+                  value: 3.75
+                });
+                $('.ie-slider').attr('id', 'rate');
             }
 
        return false;
