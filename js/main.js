@@ -81,7 +81,7 @@ function drawGraphic(container_width){
       thisObj.removeClass('disabled').addClass('selected').siblings().addClass('disabled');
       var val = thisObj.attr('id')=='button_85' ? .85 : 1.35;    
         premium_input = val;
-        drawBars(getValue(d3.select('#rate')),+val);
+        drawBars(+getValue(d3.select('#rate')),+val);
     })
   }
   bindButtons();
@@ -97,10 +97,10 @@ function drawGraphic(container_width){
 
       function getValue(rate){
         if (d3.select("#rate")[0][0].tagName !== "DIV"){
-          return rate[0][0].value
+          return roundRate(rate[0][0].value)
         }
         else{
-          return +$( "#rate" ).slider( "option", "value" )
+          return roundRate(+$( "#rate" ).slider( "option", "value" ))
         }
 
       }
@@ -118,7 +118,8 @@ function drawGraphic(container_width){
         var summary = [{s50:s50,s75:s75,s100:s100}]
 
         // console.log(+getValue(d3.select("#rate")))
-    	  rate = +getValue(d3.select("#rate"))
+    	  rate = roundRate(getValue(d3.select("#rate")))
+
         // console.log(rate)
 
     	  d3.select("#rate-value").text(rate);
@@ -401,7 +402,7 @@ function drawGraphic(container_width){
                 + 'color-stop(' + val + ', #888888)'
                 + ')'
                 );
-    drawBars(+getValue(this), premium_input);
+    drawBars(getValue(d3.select("#rate")), premium_input);
   });
 
   d3.select(".ui-slider-handle").on("click", function() {
@@ -429,6 +430,7 @@ function drawGraphic(container_width){
 
 
   function estimate(rate,premium,spread){
+    rate=+rate
   	var value = $.grep(data, function(obj){
   		return obj.rate == rate && obj.premium == premium && obj.spread == spread
   	});
