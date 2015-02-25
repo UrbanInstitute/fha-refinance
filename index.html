@@ -26,6 +26,12 @@
     <![endif]-->
 
 
+    <!--[if IE]>
+        <script>
+            document.getElementById("rate").className = "";
+        </script>
+    <![endif]-->
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -54,7 +60,7 @@
 	    		</div>
 	    		<div style = "width:100%">
 	    			<div class = "value-wrapper"><span id="rate-value"></span></div>
-	    			<input type="range" id="rate" min = "3" max = "5" step = ".01" name="rate" value = "3.75">
+	    			<input type="range" id="rate" class = "nonIE" min = "3" max = "5" step = ".01" name="rate" value = "3.75">
 	    		</div>
 				<div id = "second_spacer"></div>
 	    		<div id =  "premium_label">

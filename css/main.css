@@ -205,9 +205,17 @@ body{
 
 
 
+#rate {
+    float: left;
+    
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    
+    /*required for proper track sizing in FF*/
+    width: 60%;
+}
 
-
-input[type=range] {
+#rate.nonIE {
     float: left;
     /*removes default webkit styles*/
     -webkit-appearance: none;
@@ -218,13 +226,13 @@ input[type=range] {
     /*required for proper track sizing in FF*/
     width: 60%;
 }
-input[type=range]::-webkit-slider-runnable-track {
+#rate.nonIE::-webkit-slider-runnable-track {
     width: 60%;
     height: 5px;
     border: none;
     border-radius: 3px;
 }
-input[type=range]::-webkit-slider-thumb {
+#rate.nonIE::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
     height: 12px;
@@ -233,11 +241,11 @@ input[type=range]::-webkit-slider-thumb {
     background: #2397d0;
     margin-top: -3px;
 }
-input[type=range]:focus {
+#rate.nonIE:focus {
     outline: none;
 }
 
-input[type=range]::-moz-range-thumb {
+#rate.nonIE::-moz-range-thumb {
     border: none;
     height: 12px;
     width: 12px;
@@ -246,12 +254,12 @@ input[type=range]::-moz-range-thumb {
 }
 
 /*hide the outline behind the border*/
-input[type=range]:-moz-focusring{
+#rate.nonIE:-moz-focusring{
     outline: 1px solid white;
     outline-offset: -3px;
 }
 
-input[type=range]::-ms-track {
+#rate.nonIE::-ms-track {
     width: 80%;
     height: 5px;
     
@@ -266,16 +274,16 @@ input[type=range]::-ms-track {
     color: transparent;
 
 }
-input[type=range]::-ms-fill-lower {
+#rate.nonIE::-ms-fill-lower {
     background: #888;
     border-radius: 10px;
 }
-input[type=range]::-ms-fill-upper {
+#rate.nonIE::-ms-fill-upper {
     background: #888;
     border-radius: 10px;
 }
 
-input[type=range]::-ms-thumb {
+#rate.nonIE::-ms-thumb {
     border: none;
     height: 12px;
     width: 12px;
@@ -284,7 +292,7 @@ input[type=range]::-ms-thumb {
 }
 
 
-input[type="range"]{
+#rate.nonIE{
     -webkit-appearance: none;
     -moz-apperance: none;
     width: 80%;
