@@ -28,11 +28,9 @@
 
     <!--[if IE]>
         <script>
-            document.getElementById("rate").remove()
-            $(function() {
-                $(".ie-slider").slider();
-                $('.id-slider').attr('id', 'rate');
-            });
+            $('#rate').remove()
+            $(".ie-slider").slider();
+            $('.ie-slider').attr('id', 'rate');
         </script>
     <![endif]-->
     <!--[if !IE]>
