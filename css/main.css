@@ -10,6 +10,7 @@
 
 .text-left{
   font-weight: 700;
+  padding-right: 10px;
 }
 
 #right_labels{
@@ -138,10 +139,6 @@ body{
   margin-top: 40px;
 }
 
-#slider{
-/*  margin:auto;
-  display: block;*/
-}
 
 #rate, #premium{
   position: relative;
@@ -155,11 +152,9 @@ body{
 
 #title{
   font-size: 1.4em;
-  /*width: 125%;*/
 }
 
 #subtitle{
-  /*width: 120%;*/
   color: #8a8e8e;
 }
 
@@ -198,13 +193,6 @@ body{
   background-color: #efefef;
   border: none;
 }
-
-
-#axis_title{
-  /*margin-left: 210px;*/
-  /*margin-top: -50px;*/
-}
-
 
 #embed_text{
   margin-top: 12px;
@@ -248,10 +236,6 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]:focus {
     outline: none;
 }
-/*input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
-}*/
-
 
 input[type=range]::-moz-range-thumb {
     border: none;
